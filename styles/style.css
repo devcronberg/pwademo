@@ -1,0 +1,21 @@
+#menu button {
+  margin: 2px;
+}
+
+#app {
+  margin-top: 10px;
+  padding: 20px;
+  background-color: lightgray;
+}
+
+#formular div {
+  margin: 10px;
+}
+
+#ajax div {
+  margin: 10px;
+}
+
+#lokation div {
+  margin: 5px;
+}
