@@ -1,13 +1,13 @@
 import * as shared from "./shared.js";
 
 export function render() {
-  let html = `
-<div id="formular">
-  <div>
+  let html = `<div id="formular">  
+  <div>Dette er et eksempel på en simpel formular med en enkelt beregning:</div>
+  <div class="item">
     <label>Tal</label>
     <input type="number" class="tal" placeholder="Tal" value="2" />
   </div>
-  <div>
+  <div class="item">
     <label>Opløftet i</label>
     <select class="opl">
       <option value="2">2</option>
@@ -15,10 +15,10 @@ export function render() {
       <option value="4">4</option>
     </select>
   </div>
-  <div>
+  <div class="item">
     <button type="button" class="knap">Beregn</button>
   </div>
-  <div>
+  <div class="item">
     <label>Resultat</label>
     <input type="number" class="resultat" placeholder="Resultat" readonly />
   </div>

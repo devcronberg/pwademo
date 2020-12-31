@@ -1,6 +1,6 @@
 ﻿{
   "short_name": "PWA Demo",
-  "name": "Michell's PWA Demo",
+  "name": "PWA Demo",
   "description": "Simpelt eksempel på en PWA",
   "icons": [
     {
@@ -20,8 +20,8 @@
     }
   ],
   "start_url": "/",
-  "background_color": "#3367D6",
+  "background_color": "#FFFFFF",
   "display": "standalone",
   "scope": "/",
-  "theme_color": "#3367D6"
+  "theme_color": "#FFFFFF"
 }

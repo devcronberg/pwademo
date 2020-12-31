@@ -1,21 +1,14 @@
 #menu button {
   margin: 2px;
+  margin-bottom: 10px;
 }
 
 #app {
-  margin-top: 10px;
   padding: 20px;
-  background-color: lightgray;
+  background-color: gold;
 }
 
-#formular div {
-  margin: 10px;
-}
-
-#ajax div {
-  margin: 10px;
-}
-
-#lokation div {
-  margin: 5px;
+.item {
+  margin-left: 20px;
+  margin-top: 15px;
 }

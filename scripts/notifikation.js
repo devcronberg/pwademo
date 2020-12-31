@@ -1,8 +1,12 @@
 import * as shared from "./shared.js";
 
 export function render() {
-  let html = `<button type="button" class="knap1">Tillad notifikation</button>
-  <button type="button" class="knap2">Dan notifikation</button>`;
+  let html = `
+  <div id="notifikation">
+  <div>Dette er et eksempel på brug af Notification API og burde virke på på desktop og mobile (web og PWA).</div>
+  <button type="button" class="knap1 item">Tillad notifikation</button>
+  <button type="button" class="knap2 item">Dan notifikation</button>
+  </div>`;
   shared.skrivHTML("#app", html);
   document.querySelector("#app .knap2").disabled = true;
 
@@ -22,9 +26,13 @@ export function render() {
   document.querySelector("#app .knap2").onclick = async () => {
     if (Notification.permission == "granted") {
       navigator.serviceWorker.getRegistration().then(function (reg) {
-        reg.showNotification("Hello world!");
+        reg.showNotification("PWA Demo", {
+          body:
+            "Dette er et eksempel på en notifikation. Den er dannet " +
+            new Date().toLocaleTimeString(),
+          icon: "/images/pwa192.png",
+        });
       });
     }
-    //new Notification("Notifikation", { body: "Test af notifikation" });
   };
 }
