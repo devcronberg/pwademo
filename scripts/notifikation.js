@@ -20,6 +20,11 @@ export function render() {
   }
 
   document.querySelector("#app .knap2").onclick = async () => {
-    new Notification("Notifikation", { body: "Test af notifikation" });
+    if (Notification.permission == "granted") {
+      navigator.serviceWorker.getRegistration().then(function (reg) {
+        reg.showNotification("Hello world!");
+      });
+    }
+    //new Notification("Notifikation", { body: "Test af notifikation" });
   };
 }

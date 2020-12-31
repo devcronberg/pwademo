@@ -1,0 +1,27 @@
+﻿{
+  "short_name": "PWA Demo",
+  "name": "Michell's PWA Demo",
+  "description": "Simpelt eksempel på en PWA",
+  "icons": [
+    {
+      "src": "/images/pwa128.png",
+      "type": "image/png",
+      "sizes": "128x128"
+    },
+    {
+      "src": "/images/pwa192.png",
+      "type": "image/png",
+      "sizes": "192x192"
+    },
+    {
+      "src": "/images/pwa512.png",
+      "type": "image/png",
+      "sizes": "512x512"
+    }
+  ],
+  "start_url": "/",
+  "background_color": "#3367D6",
+  "display": "standalone",
+  "scope": "/",
+  "theme_color": "#3367D6"
+}
