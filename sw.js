@@ -1,20 +1,22 @@
-﻿let staticCacheNavn = "sc-v27";
+﻿let staticCacheNavn = "sc-v100";
+const moduler = [
+  "/scripts/index.js",
+  "/scripts/forside.js",
+  "/scripts/formular.js",
+  "/scripts/ajax.js",
+  "/scripts/menu.js",
+  "/scripts/notifikation.js",
+  "/scripts/shared.js",
+  "/scripts/lokation.js",
+];
 
 self.addEventListener("install", function (e) {
   console.log("ServiceWorker installeret");
 
   // lidt noget rod med es6 moduler pt
   // https://medium.com/@filipbech/the-gotchas-of-caching-es-modules-f92c9429fe26
-  const moduler = [
-    "/scripts/index.js",
-    "/scripts/forside.js",
-    "/scripts/formular.js",
-    "/scripts/ajax.js",
-    "/scripts/menu.js",
-    "/scripts/notifikation.js",
-    "/scripts/shared.js",
-    "/scripts/lokation.js",
-  ].map(
+
+  const modulerRequest = moduler.map(
     (url) =>
       new Request(url, {
         mode: "cors",
@@ -37,7 +39,7 @@ self.addEventListener("install", function (e) {
         "/images/pwa192.png",
         "/images/pwa512.png",
         "/manifest.json",
-        ...moduler,
+        ...modulerRequest,
       ]);
     })
   );
@@ -56,5 +58,16 @@ self.addEventListener("activate", function (e) {
 });
 
 self.addEventListener("fetch", function (e) {
-  e.respondWith(caches.match(new Request(e.request.url, { mode: "cors", credentials: "omit" })));
+  if (ModulFindes(e.request.url))
+    e.respondWith(caches.match(new Request(e.request.url, { mode: "cors", credentials: "omit" })));
+  else e.respondWith(caches.match(e.request.url).then((r) => r || fetch(e.request)));
 });
+
+function ModulFindes(url) {
+  moduler.forEach((v) => {
+    if (url.includes(v)) {
+      return true;
+    }
+  });
+  return false;
+}
