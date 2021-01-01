@@ -4,6 +4,11 @@
   "description": "Simpelt eksempel på en PWA",
   "icons": [
     {
+      "src": "/images/pwa96.png",
+      "type": "image/png",
+      "sizes": "96x96"
+    },
+    {
       "src": "/images/pwa128.png",
       "type": "image/png",
       "sizes": "128x128"
@@ -19,9 +24,9 @@
       "sizes": "512x512"
     }
   ],
-  "start_url": "/",
-  "background_color": "#FFFFFF",
+  "start_url": "/index.html",
+  "background_color": "#11ccee",
   "display": "standalone",
   "scope": "/",
-  "theme_color": "#FFFFFF"
+  "theme_color": "#11ccee"
 }

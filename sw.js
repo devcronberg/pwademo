@@ -1,20 +1,29 @@
-﻿self.addEventListener("install", function (e) {
+﻿let staticCacheNavn = "sc-v2";
+
+self.addEventListener("install", function (e) {
+  console.log("ServiceWorker installeret");
   e.waitUntil(
-    caches.open("cache").then(function (cache) {
+    caches.open(staticCacheNavn).then(function (cache) {
       return cache.addAll([
-        "index.html",
-        "styles/style.css",
-        "scripts/index.js",
-        "scripts/forside.js",
-        "scripts/formular.js",
-        "scripts/ajax.js",
-        "scripts/menu.js",
-        "scripts/notifikation.js",
-        "scripts/shared.js",
-        "https://dawa.aws.dk/Postnumre",
+        "/",
+        "/index.html",
+        "/styles/style.css",
+        "/scripts/index.js",
+        "/scripts/forside.js",
+        "/scripts/formular.js",
+        "/scripts/ajax.js",
+        "/scripts/menu.js",
+        "/scripts/notifikation.js",
+        "/scripts/shared.js",
       ]);
     })
   );
 });
 
-this.addEventListener("fetch", function (event) {});
+self.addEventListener("activated", function (e) {
+  console.log("ServiceWorker aktiveret");
+});
+
+self.addEventListener("fetch", function (e) {
+  console.log("ServiceWorker fetch-proxy", e);
+});

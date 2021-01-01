@@ -7,8 +7,9 @@ let html = `<div>Dette er et eksempel på en simpel PWA applikation. Den er skab
   <li>Applikationen er en typisk SPA (Single Page Application) men er skabt uden brug af eksterne frameworks (som Vue, Angular mv). Dette 
   er gjort for at simplificere koden så meget som muligt</li>
   <li>Check de eksempler ved at benytte menuen øverst</li>
-  <li>Find kode og link til en distribueret verision hos <a href="https://github.com/devcronberg/pwademo">GitHub</a></li>
+  <li>Find kode og link til en distribueret version hos <a href="https://github.com/devcronberg/pwademo">GitHub</a></li>
   <li>Billeder/icon er fra <a href="https://favicon.io/emoji-favicons/test-tube">favicon.io</a></li>
+  <li>IOs splash screens er fra <a href="https://appsco.pe/developer/splash-screens">appsco.pe/developer</a></li>
   <li>Applikationen indeholder oplysninger (postnumre) fra Danmarks Adressers Web API (DAWA), som Styrelsen for
    Dataforsyning og Effektivisering (SDFE) har ansvaret for. Se mere på <a href="https://dawa.aws.dk/">aws.dk</a>.
    Data er offline cach'et for at undgå for mange kald mod aws.dk

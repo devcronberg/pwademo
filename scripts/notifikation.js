@@ -3,7 +3,7 @@ import * as shared from "./shared.js";
 export function render() {
   let html = `
   <div id="notifikation">
-  <div>Dette er et eksempel på brug af Notification API og burde virke på på desktop og mobile (web og PWA).</div>
+  <div>Dette er et eksempel på brug af Notification API og burde virke på på desktop og mobile (web og PWA - men ikke på Safari/IOS).</div>
   <button type="button" class="knap1 item">Tillad notifikation</button>
   <button type="button" class="knap2 item">Dan notifikation</button>
   </div>`;
