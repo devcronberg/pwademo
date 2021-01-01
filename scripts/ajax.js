@@ -37,7 +37,7 @@ export async function render() {
     let data = localStorage.getItem("postnumre");
 
     if (data == null) {
-      let postnumre = await findPostnumre();
+      let postnumre = await hentPostnumre();
       let storage = { data: postnumre, tid: new Date().getTime() };
       localStorage.setItem("postnumre", JSON.stringify(storage));
       return {
@@ -46,7 +46,7 @@ export async function render() {
       };
     } else if (new Date().getTime() - JSON.parse(data).tid > 8640000) {
       // en dag i ms
-      let postnumre = await findPostnumre();
+      let postnumre = await hentPostnumre();
       let storage = { data: postnumre, tid: new Date().getTime() };
       localStorage.setItem("postnumre", JSON.stringify(storage));
       return {
