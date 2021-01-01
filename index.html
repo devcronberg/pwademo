@@ -75,5 +75,17 @@
     <div id="menu"></div>
     <div id="app"></div>
     <script type="module" src="scripts/index.js"></script>
+    <script>
+      if ("serviceWorker" in navigator) {
+        navigator.serviceWorker
+          .register("/sw.js")
+          .then((r) => {
+            console.log("ServiceWorker registreret");
+          })
+          .catch((e) => {
+            console.log("ServiceWorker ikke registreret");
+          });
+      }
+    </script>
   </body>
 </html>
