@@ -3,7 +3,7 @@ import * as shared from "./shared.js";
 export function render() {
   let html = `
   <div id="fil">
-  <div>Dette er et eksempel på brug af IO/File API.</div>
+  <div>Dette er et eksempel på brug af IO/File API (kun desktop).</div>
   <button type="button" class="knap1 item">Åbn fil</button>  
   <div id="filindhold" class="item"></div>
   </div>`;
@@ -29,6 +29,18 @@ export function render() {
       document.querySelector("#filindhold").innerHTML = indhold.replace(/[\r\n]/g, "<br />");
     } catch (error) {
       document.querySelector("#filindhold").innerHTML = error;
+    }
+
+    try {
+      const shareData = {
+        title: "MDN",
+        text: "Learn web development on MDN!",
+        url: "https://developer.mozilla.org",
+      };
+      await navigator.share(shareData);
+      resultPara.textContent = "MDN shared successfully";
+    } catch (err) {
+      resultPara.textContent = "Error: " + err;
     }
   };
 }
