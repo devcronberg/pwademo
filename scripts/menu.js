@@ -13,22 +13,26 @@ export function render() {
     navigator.userAgent.indexOf("FxiOS") == -1;
 
   let menu = [
-    { navn: "Forside", komponent: forside, disabled: false },
-    { navn: "Formular", komponent: formular, disabled: false },
-    { navn: "Ajax", komponent: ajax, disabled: false },
-    { navn: "Lokation", komponent: lokation, disabled: false },
-    { navn: "Notifikation", komponent: notifikation, disabled: erSafari },
+    { navn: "Forside", komponent: forside, disabled: false, hash: "forside" },
+    { navn: "Formular", komponent: formular, disabled: false, hash: "formuar" },
+    { navn: "Ajax", komponent: ajax, disabled: false, hash: "ajax" },
+    { navn: "Lokation", komponent: lokation, disabled: false, hash: "lokation" },
+    { navn: "Notifikation", komponent: notifikation, disabled: erSafari, hash: "notifikation" },
   ];
 
   menu.forEach((i) => {
     let b = document.createElement("button");
     b.innerHTML = i.navn;
-    b.onclick = i.komponent.render;
+    b.onclick = () => {
+      window.location.hash = i.hash;
+      i.komponent.render();
+    };
     b.disabled = i.disabled;
     document.querySelector("#menu").appendChild(b);
   });
 }
 
+// Meget simpel route - for at checke shotcuts i manifest
 if (window.location.hash) {
   skiftEfterHash(window.location.hash);
 } else {
@@ -46,9 +50,3 @@ function skiftEfterHash(hash) {
 window.onhashchange = () => {
   skiftEfterHash(window.location.hash);
 };
-
-// // Meget simpel route - for at checke shotcuts i manifest
-// if (window.location.href.includes("?formular")) {
-//   formular.render();
-// } else {
-// }
