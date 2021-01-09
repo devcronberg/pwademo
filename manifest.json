@@ -7,7 +7,7 @@
       "name": "Beregning",
       "short_name": "Beregn",
       "description": "Foretage en beregning",
-      "url": "/#beregning",
+      "url": "/?formular",
       "icons": [{ "src": "/images/pwa192.png", "sizes": "192x192" }]
     }
   ],

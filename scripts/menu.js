@@ -29,4 +29,9 @@ export function render() {
   });
 }
 
-forside.render();
+// Meget simpel route - for at checke shotcuts i manifest
+if (window.location.href.includes("?formular")) {
+  formular.render();
+} else {
+  forside.render();
+}
