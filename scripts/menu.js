@@ -3,6 +3,7 @@ import * as formular from "./formular.js";
 import * as ajax from "./ajax.js";
 import * as lokation from "./lokation.js";
 import * as notifikation from "./notifikation.js";
+import * as kontakter from "./kontakter.js";
 
 export function render() {
   let erSafari =
@@ -17,6 +18,7 @@ export function render() {
     { navn: "Formular", komponent: formular, disabled: false, hash: "formuar" },
     { navn: "Ajax", komponent: ajax, disabled: false, hash: "ajax" },
     { navn: "Lokation", komponent: lokation, disabled: false, hash: "lokation" },
+    { navn: "Kontakter", komponent: kontakter, disabled: false, hash: "kontakter" },
     { navn: "Notifikation", komponent: notifikation, disabled: erSafari, hash: "notifikation" },
   ];
 
