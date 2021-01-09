@@ -2,6 +2,15 @@
   "short_name": "PWA Demo",
   "name": "PWA Demo",
   "description": "Simpelt eksempel på en PWA",
+  "share_target": {
+    "action": "/#del/",
+    "method": "GET",
+    "params": {
+      "title": "title",
+      "text": "text",
+      "url": "url"
+    }
+  },
   "shortcuts": [
     {
       "name": "Beregning",

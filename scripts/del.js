@@ -14,7 +14,7 @@ export function render() {
     try {
       const shareData = {
         title: "PWADemo",
-        text: document.querySelector("#deltxt").innerHTML,
+        text: document.querySelector("#deltxt").value,
         url: "",
       };
       await navigator.share(shareData);
