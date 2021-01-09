@@ -1,4 +1,5 @@
-﻿let staticCacheNavn = "sc-v107";
+﻿let staticCacheNavn = "20210109-1";
+
 const moduler = [
   "/scripts/index.js",
   "/scripts/forside.js",

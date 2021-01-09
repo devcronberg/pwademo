@@ -1,5 +1,7 @@
 import { render } from "./menu.js";
 
+document.querySelector("#buildDate").innerHTML = "20210901-1";
+
 render();
 
 window.addEventListener("beforeinstallprompt", (event) => {

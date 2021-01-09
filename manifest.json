@@ -2,6 +2,15 @@
   "short_name": "PWA Demo",
   "name": "PWA Demo",
   "description": "Simpelt eksempel på en PWA",
+  "shortcuts": [
+    {
+      "name": "Beregning",
+      "short_name": "Beregn",
+      "description": "Foretage en beregning",
+      "url": "/#beregning",
+      "icons": [{ "src": "/images/pwa192.png", "sizes": "192x192" }]
+    }
+  ],
   "icons": [
     {
       "src": "/images/pwa96.png",
