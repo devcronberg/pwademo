@@ -5,6 +5,7 @@ import * as lokation from "./lokation.js";
 import * as notifikation from "./notifikation.js";
 import * as kontakter from "./kontakter.js";
 import * as fil from "./fil.js";
+import * as del from "./del.js";
 
 const erSafari =
   navigator.vendor &&
@@ -21,6 +22,7 @@ const menu = [
   { navn: "Kontakter", komponent: kontakter, disabled: false, hash: "kontakter" },
   { navn: "Notifikation", komponent: notifikation, disabled: erSafari, hash: "notifikation" },
   { navn: "Fil", komponent: fil, disabled: false, hash: "fil" },
+  { navn: "Del", komponent: del, disabled: false, hash: "del" },
 ];
 
 export function render() {

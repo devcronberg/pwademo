@@ -30,17 +30,5 @@ export function render() {
     } catch (error) {
       document.querySelector("#filindhold").innerHTML = error;
     }
-
-    try {
-      const shareData = {
-        title: "MDN",
-        text: "Learn web development on MDN!",
-        url: "https://developer.mozilla.org",
-      };
-      await navigator.share(shareData);
-      resultPara.textContent = "MDN shared successfully";
-    } catch (err) {
-      resultPara.textContent = "Error: " + err;
-    }
   };
 }
