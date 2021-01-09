@@ -3,7 +3,7 @@
   "name": "PWA Demo",
   "description": "Simpelt eksempel på en PWA",
   "share_target": {
-    "action": "/#del",
+    "action": "/",
     "method": "GET",
     "params": {
       "title": "title",
