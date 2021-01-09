@@ -42,11 +42,12 @@ if (window.location.hash) {
 }
 
 function skiftEfterHash(hash) {
-  if (hash.includes("formular")) {
-    formular.render();
-    return;
-  }
-  forside.render();
+  if (hash.includes("#formular")) formular.render();
+  if (hash.includes("#forside")) forside.render();
+  if (hash.includes("#ajax")) ajax.render();
+  if (hash.includes("#lokation")) lokation.render();
+  if (hash.includes("#kontakter")) kontakter.render();
+  if (hash.includes("#notifikation")) notifikation.render();
 }
 
 window.onhashchange = () => {
