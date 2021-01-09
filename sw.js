@@ -1,4 +1,4 @@
-﻿let staticCacheNavn = "202101092113";
+﻿let staticCacheNavn = "202101092117";
 
 const moduler = [
   "/scripts/index.js",

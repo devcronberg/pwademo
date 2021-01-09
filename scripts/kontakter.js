@@ -7,8 +7,12 @@ export function render() {
   <button type="button" class="knap1 item">Hent kontakter</button>  
   </div>`;
   shared.skrivHTML("#app", html);
-
-  document.querySelector("#app .knap1").onclick = async () => {
-    alert("contacts" in navigator);
-  };
+  if ("contacts" in navigator) {
+    document.querySelector("#app .knap1").onclick = async () => {
+      const kontakt = await navigator.contacts.select(["name", "email"], { multiple: true });
+      alert(kontakt.lenght);
+    };
+  } else {
+    document.querySelector("#app .knap1").disabled = true;
+  }
 }

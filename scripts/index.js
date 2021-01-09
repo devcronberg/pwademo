@@ -1,6 +1,6 @@
 import { render } from "./menu.js";
 
-document.querySelector("#buildDate").innerHTML = "202101092113";
+document.querySelector("#buildDate").innerHTML = "202101092117";
 
 render();
 
