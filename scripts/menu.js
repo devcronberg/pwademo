@@ -4,24 +4,26 @@ import * as ajax from "./ajax.js";
 import * as lokation from "./lokation.js";
 import * as notifikation from "./notifikation.js";
 import * as kontakter from "./kontakter.js";
+import * as fil from "./fil.js";
+
+const erSafari =
+  navigator.vendor &&
+  navigator.vendor.indexOf("Apple") > -1 &&
+  navigator.userAgent &&
+  navigator.userAgent.indexOf("CriOS") == -1 &&
+  navigator.userAgent.indexOf("FxiOS") == -1;
+
+const menu = [
+  { navn: "Forside", komponent: forside, disabled: false, hash: "forside" },
+  { navn: "Formular", komponent: formular, disabled: false, hash: "formuar" },
+  { navn: "Ajax", komponent: ajax, disabled: false, hash: "ajax" },
+  { navn: "Lokation", komponent: lokation, disabled: false, hash: "lokation" },
+  { navn: "Kontakter", komponent: kontakter, disabled: false, hash: "kontakter" },
+  { navn: "Notifikation", komponent: notifikation, disabled: erSafari, hash: "notifikation" },
+  { navn: "Fil", komponent: fil, disabled: false, hash: "fil" },
+];
 
 export function render() {
-  let erSafari =
-    navigator.vendor &&
-    navigator.vendor.indexOf("Apple") > -1 &&
-    navigator.userAgent &&
-    navigator.userAgent.indexOf("CriOS") == -1 &&
-    navigator.userAgent.indexOf("FxiOS") == -1;
-
-  let menu = [
-    { navn: "Forside", komponent: forside, disabled: false, hash: "forside" },
-    { navn: "Formular", komponent: formular, disabled: false, hash: "formuar" },
-    { navn: "Ajax", komponent: ajax, disabled: false, hash: "ajax" },
-    { navn: "Lokation", komponent: lokation, disabled: false, hash: "lokation" },
-    { navn: "Kontakter", komponent: kontakter, disabled: false, hash: "kontakter" },
-    { navn: "Notifikation", komponent: notifikation, disabled: erSafari, hash: "notifikation" },
-  ];
-
   menu.forEach((i) => {
     let b = document.createElement("button");
     b.innerHTML = i.navn;
@@ -35,19 +37,17 @@ export function render() {
 }
 
 // Meget simpel route - for at checke shotcuts i manifest
-if (window.location.hash) {
-  skiftEfterHash(window.location.hash);
-} else {
-  forside.render();
-}
+
+skiftEfterHash(window.location.hash);
 
 function skiftEfterHash(hash) {
-  if (hash.includes("#formular")) formular.render();
-  if (hash.includes("#forside")) forside.render();
-  if (hash.includes("#ajax")) ajax.render();
-  if (hash.includes("#lokation")) lokation.render();
-  if (hash.includes("#kontakter")) kontakter.render();
-  if (hash.includes("#notifikation")) notifikation.render();
+  if (!window.location.hash) {
+    forside.render();
+    return;
+  }
+  menu.forEach((i) => {
+    if (hash.includes("#" + i.hash)) i.komponent.render();
+  });
 }
 
 window.onhashchange = () => {

@@ -27,7 +27,9 @@ export function render() {
 }
 
 window.addEventListener("deviceorientation", function (event) {
-  document.querySelector("#alpha").innerHTML = event.alpha.toFixed(2);
-  document.querySelector("#beta").innerHTML = event.beta.toFixed(2);
-  document.querySelector("#gamma").innerHTML = event.gamma.toFixed(2);
+  if (document.querySelector("#alpha")) {
+    document.querySelector("#alpha").innerHTML = event.alpha.toFixed(2);
+    document.querySelector("#beta").innerHTML = event.beta.toFixed(2);
+    document.querySelector("#gamma").innerHTML = event.gamma.toFixed(2);
+  }
 });
