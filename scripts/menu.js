@@ -29,9 +29,26 @@ export function render() {
   });
 }
 
-// Meget simpel route - for at checke shotcuts i manifest
-if (window.location.href.includes("?formular")) {
-  formular.render();
+if (window.location.hash) {
+  skiftEfterHash(window.location.hash);
 } else {
   forside.render();
 }
+
+function skiftEfterHash(hash) {
+  if (hash.includes("formular")) {
+    formular.render();
+    return;
+  }
+  forside.render();
+}
+
+window.onhashchange = () => {
+  skiftEfterHash(window.location.hash);
+};
+
+// // Meget simpel route - for at checke shotcuts i manifest
+// if (window.location.href.includes("?formular")) {
+//   formular.render();
+// } else {
+// }
