@@ -1,12 +1,13 @@
 import { render } from "./menu.js";
 
-document.querySelector("#buildDate").innerHTML = "202101092126";
+document.querySelector("#buildDate").innerHTML = "202101092151";
 
 render();
 
 window.addEventListener("beforeinstallprompt", (event) => {
   console.log("beforeinstallprompt");
   window.deferredPrompt = event;
+  localStorage.setItem("appinstalled", false);
 });
 
 window.addEventListener("appinstalled", (event) => {

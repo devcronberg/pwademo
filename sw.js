@@ -1,4 +1,4 @@
-﻿let staticCacheNavn = "202101092126";
+﻿let staticCacheNavn = "202101092151";
 
 const moduler = [
   "/scripts/index.js",
@@ -9,6 +9,7 @@ const moduler = [
   "/scripts/notifikation.js",
   "/scripts/shared.js",
   "/scripts/lokation.js",
+  "/scripts/kontakter.js",
 ];
 
 self.addEventListener("install", function (e) {
@@ -60,7 +61,6 @@ self.addEventListener("activate", function (e) {
 
 self.addEventListener("fetch", function (e) {
   if (ModulFindes(e.request.url)) {
-    //e.respondWith(caches.match(new Request(e.request.url, { mode: "cors", credentials: "omit" })));
     let r = new Request(e.request.url, { mode: "cors", credentials: "omit" });
     e.respondWith(
       fetch(r).catch(function () {
@@ -68,7 +68,6 @@ self.addEventListener("fetch", function (e) {
       })
     );
   } else {
-    //e.respondWith(caches.match(e.request.url).then((r) => r || fetch(e.request)));
     e.respondWith(
       fetch(e.request).catch(function () {
         return caches.match(e.request);
