@@ -1,4 +1,4 @@
-﻿let staticCacheNavn = "202101092054";
+﻿let staticCacheNavn = "202101092113";
 
 const moduler = [
   "/scripts/index.js",
@@ -59,9 +59,22 @@ self.addEventListener("activate", function (e) {
 });
 
 self.addEventListener("fetch", function (e) {
-  if (ModulFindes(e.request.url))
-    e.respondWith(caches.match(new Request(e.request.url, { mode: "cors", credentials: "omit" })));
-  else e.respondWith(caches.match(e.request.url).then((r) => r || fetch(e.request)));
+  if (ModulFindes(e.request.url)) {
+    //e.respondWith(caches.match(new Request(e.request.url, { mode: "cors", credentials: "omit" })));
+    let r = new Request(e.request.url, { mode: "cors", credentials: "omit" });
+    e.respondWith(
+      fetch(r).catch(function () {
+        return caches.match(r);
+      })
+    );
+  } else {
+    //e.respondWith(caches.match(e.request.url).then((r) => r || fetch(e.request)));
+    e.respondWith(
+      fetch(e.request).catch(function () {
+        return caches.match(e.request);
+      })
+    );
+  }
 });
 
 function ModulFindes(url) {
