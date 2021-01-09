@@ -44,7 +44,15 @@ skiftEfterHash(window.location.hash);
 
 function skiftEfterHash(hash) {
   if (!window.location.hash) {
-    forside.render();
+    // del fra andre apps?
+    const queryString = window.location.search;
+    const urlParams = new URLSearchParams(queryString);
+    const text = urlParams.get("text");
+    if (text) {
+      del.render();
+    } else {
+      forside.render();
+    }
     return;
   }
   menu.forEach((i) => {

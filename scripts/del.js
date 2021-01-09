@@ -6,7 +6,7 @@ export function render() {
   <div>Dette er et eksempel på brug af ShareAPI. Det virker kun på nyere mobil browsere</div>
   <div class="item"><input type="text" id="deltxt" value="del denne tekst" /></div>
   <div><button type="button" class="knap1 item">Del</button></div>  
-  <div id="delmessage" class="item"></div>
+  <div id="delmessage" class="item"></div>  
   </div>`;
   shared.skrivHTML("#app", html);
 
@@ -23,4 +23,11 @@ export function render() {
       document.querySelector("#delmessage").innerText = err;
     }
   };
+
+  const queryString = window.location.search;
+  const urlParams = new URLSearchParams(queryString);
+  const text = urlParams.get("text");
+  if (text) {
+    document.querySelector("#delmessage").innerText = text;
+  }
 }
