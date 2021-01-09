@@ -3,7 +3,8 @@ import * as shared from "./shared.js";
 export function render() {
   let html = `
   <div id="del">
-  <div>Dette er et eksempel på brug af ShareAPI. Det virker kun på nyere mobil browsere</div>
+  <div>Dette er et eksempel på brug af ShareAPI. Det virker kun på nyere mobil browsere. Du
+  kan også prøve at dele noget med denne applikation.</div>
   <div class="item"><input type="text" id="deltxt" value="del denne tekst" /></div>
   <div><button type="button" class="knap1 item">Del</button></div>  
   <div id="delmessage" class="item"></div>  
@@ -15,7 +16,7 @@ export function render() {
       const shareData = {
         title: "PWADemo",
         text: document.querySelector("#deltxt").value,
-        url: "",
+        url = "/"
       };
       await navigator.share(shareData);
       document.querySelector("#delmessage").innerText = "Tekst delt";
